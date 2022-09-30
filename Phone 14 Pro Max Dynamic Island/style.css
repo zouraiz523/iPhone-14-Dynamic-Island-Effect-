@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Poppins;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: #fff;
+}
+
+.box {
+  margin: 0.25em;
+  position: relative;
+  width: 77.6mm;
+  height: 160.7mm;
+  background: #666;
+  border-radius: 50px;
+}
+
+.box::before {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  background: #000;
+  border-radius: 48px;
+}
+
+.camera {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: radial-gradient(#3f3978,#0c0e29,#283964);
+  border-radius: 50%;
+  top: 27px;
+  opacity: 0.5;
+  left: 170px;
+  z-index: 12;
+}
+
+.inner {
+  position: absolute;
+  inset: 3px;
+  border-radius: 48px;
+  background: url('https://raw.githubusercontent.com/zouraiz523/iphone-14-pro-max/main/Phone%2014%20Pro%20Max%20and%20Dynamic%20Island/img-bg.webp');
+  background-size: cover;
+  background-position: center;
+  border: 10px solid #000;
+  display: flex;
+  justify-content: center;
+  opacity: 0.4;
+  transition: 0.5s;
+}
+
+.inner::before {
+  content: '4:45';
+  color: #fff;
+  position: absolute;
+  top: 60px;
+  font-size: 64px;
+  font-weight: 500;
+  transition: 0.5s;
+  opacity: 1;
+}
+.inner::after {
+  content: 'Thur 15 ☾ 11:49PM';
+  color: #fff;
+  position: absolute;
+  top: 50px;
+  transition: 0.5s;
+  opacity: 1;
+  font-weight: 600;
+}
+
+.inner:hover::before, .inner:hover::after {
+  opacity: 0;
+}
+
+.box:hover .inner {
+  opacity: 1;
+}
+
+.btn {
+  position: absolute;
+  top: 110px;
+  left: -2px;
+  width: 3px;
+  height: 26px;
+  background: radial-gradient(#ccc,#666,#222);
+  border-radius: 4px 0 0 4px;
+  z-index: 10;
+}
+
+.btn.btn2{
+  top: 160px;
+  height: 40px;
+}
+
+.btn.btn3{
+  top: 210px;
+  height: 40px;
+}
+
+.btn.rightBtn {
+  top: 170px;
+  height: 70px;
+  left: unset;
+  right: -2px;
+  border-radius: 0 4px 4px 0; 
+}
+
+.island-popup {
+  position: absolute;
+  top: 10px;
+  width: 90px;
+  height: 25px;
+  background: #000;
+  border-radius: 20px;
+  transition: 0.5s ease-in-out;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.island-popup:hover{
+  width: 200px;
+}
+
+.island-popup.active {
+  width: 250px;
+  height: 60px;
+  border-radius: 60px;
+}
+
+.content {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 10px;
+  line-height: 25px;
+}
+
+.content p{
+  color: #fff;
+  font-size: 0.6em;
+  cursor: default;
+  visibility: hidden;
+  font-weight: 400;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.action {
+  position: relative;
+  color: #fff;
+  top: 5px;
+  display: flex;
+  gap: 12px;
+  transition: 0.5s;
+  visibility: hidden;
+  opacity: 0;
+}
+
+ion-icon.red {
+  color: #f6443b;
+  transform: rotate(135deg);
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+ion-icon.green {
+  color: #31d859;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.island-popup.active p,.island-popup:hover p, .island-popup:hover .action, .island-popup.active .action {
+  visibility: visible;
+  opacity: 1;
+  transition-delay: 0.25s;
+}
+.island-popup.active ion-icon.red {
+  background: #fd443b;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px #fd443b;
+  margin-right: 12px;
+}
+
+.island-popup.active ion-icon.green {
+  background: #31d859;
+  color: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px #31d859;
+  margin-right: 8px;
+}
+
+.details {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.details .imgBx {
+  width: 0;
+  height: 0;
+  background: url('face.jpg');
+  background-size: 70px;
+  background-position: -15px -5px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+.island-popup.active .details .imgBx{
+  width: 40px;
+  height: 40px;
+  margin-right: 8px;
+}
+
+.island-popup.active p {
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.island-popup.active .action {
+  top: 12px;
+}
+
+.island-popup * {
+  pointer-events: none;
+}
